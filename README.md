@@ -1,63 +1,38 @@
-# smartphone-activity-data
-==================================================================
-Human Activity Recognition Using Smartphones Dataset
-Version 1.0
 
-The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+# set working directory
 
-The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
+# check if the data folder exists and download data file
 
-For each record it is provided:
-======================================
+# Unzip file
 
-- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
-- Triaxial Angular velocity from the gyroscope. 
-- A 561-feature vector with time and frequency domain variables. 
-- Its activity label. 
-- An identifier of the subject who carried out the experiment.
+# read the activity labels data, give descriptive column names and convert activity_id from numeric to factor
 
-The dataset includes the following files:
-=========================================
+# read the features data, give descriptive column names
 
-- 'README.txt'
+# read the subject train data, give descriptive column names and convert subject_id from numeric to factor
 
-- 'features_info.txt': Shows information about the variables used on the feature vector.
+# read the X_train data, give descriptive column names
 
-- 'features.txt': List of all features.
+# read the y_train data, give descriptive column names and convert activity_id from numeric to factor
 
-- 'activity_labels.txt': Links the class labels with their activity name.
+# read the subject_test data, give descriptive column names and convert subject_id from numeric to factor
 
-- 'train/X_train.txt': Training set.
+# read the X_test data, give descriptive column names
 
-- 'train/y_train.txt': Training labels.
+# read the y_test data, give descriptive column names and convert activity_id from numeric to factor
 
-- 'test/X_test.txt': Test set.
+# combine (column bind) subject_train, X_train, y_train data to get training data - activity, subject and all variables in one data set
 
-- 'test/y_test.txt': Test labels.
+# combine (column bind) subject_test, X_test, y_test data to get test_data - activity, subject and all variables in one data set
 
-The following files are available for the train and test data. Their descriptions are equivalent. 
+# combine (row bind) training and test data to get full_data in a single dataset
 
-- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+# merge activity labels with full data obtained in last step to display activity name instead of activity id
 
-- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
+# filter the dataset to include only mean and std measurements
 
-- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
+# read data into a data table, get average of each variable by activity and subject
 
-- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
+# write the data table to a txt file (tidy_data.txt)
 
-Notes: 
-======
-- Features are normalized and bounded within [-1,1].
-- Each feature vector is a row on the text file.
-
-For more information about this dataset contact: activityrecognition@smartlab.ws
-
-License:
-========
-Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
-
-[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
-
-This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
-
-Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
+# check the tidy data txt file validity by reading back into data table
