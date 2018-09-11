@@ -1,6 +1,8 @@
 
 # Analysis steps to create one tidy data set from smartphone activity data files:
 
+The R script reads data from a number of text files that have information on activity labels, variables (features), variable names (feature names) and combines the data so that all data gets added in a single dataset. The dataset is then filtered to include only columns that are either mean or standard deviation figures. Data is then grouped by activity and subject and average of the figures is calculated. Lastly the tidy data is read to a text file. 
+
 1. set working directory
 
 2. check if the data folder exists and download data file
